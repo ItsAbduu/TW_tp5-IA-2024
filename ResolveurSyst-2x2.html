@@ -1,0 +1,90 @@
+
+<html>
+<head>
+      <title>JAVASCRIPT</title>
+<script language="JavaScript"> 
+var a= new Number(0), b= new Number(0), c= new Number(0),
+    d= new Number(0), e= new Number(0), f= new Number(0),
+    s= new Number(0), u= new Number(0), v= new Number(0);
+var r= new String();
+function det(x,y,z,t)
+{ return x*t-z*y;
+};
+
+function repondre()
+{ 
+  a=Number(document.s.a.value);
+	b=Number(document.s.b.value);
+	c=Number(document.s.c.value);
+  d=Number(document.s.d.value);
+  e=Number(document.s.e.value);
+  f=Number(document.s.f.value);
+  s=det(a,d,b,e); 
+  u=det(c,f,b,e); 
+  v=det(a,d,c,f);
+  
+  if(s!=0)
+    {
+      r= 'Déterminant = '+s.toString()+'      \"Droites sécantes\"\n';
+      r+='1 solution unique'+'\n';
+      r+='x = '+(u/s).toString()+'\n';
+      r+='y = '+(v/s).toString();
+    }
+    else
+    { 
+      if(u!=0)
+        {
+          r= 'Déterminant principal  = '+s.toString()+'  \"Droites parallèles\"\n';
+          r+='Déterminant secondaire = '+(-u).toString()+'  \"elles sont disjointes\"\n';
+          r+='Pas de solution';
+        }
+        else
+        {
+          r= 'Déterminant  principal = '+s.toString()+'  \"Droites parallèles\"\n';
+          r+='Déterminant secondaire = '+u.toString()+'  \"elles sont confondues\"\n';
+          r+='Infinité de solutions';
+        }
+   }
+  document.rep.result.value=r;
+};
+
+function faire(a,b,c,d,e,f)
+{
+  document.s.a.value=a;document.s.b.value=b;document.s.c.value=c;
+  document.s.d.value=d;document.s.e.value=e;document.s.f.value=f;
+  repondre();
+};
+// -->
+</script>
+</head>
+<body>
+<b>
+Résolveur de système linéaire <br>à 2 équations et 2 inconnues. </b> <br>
+
+<table border cellspacing="0" bgcolor="#ffffff"><TR>
+<form name="s">
+<table cellspacing="0">
+<tr>
+<td><input type="text" name="a" size="3" value="1"> &nbsp;x&nbsp;&nbsp;+</td>
+<td><input type="text" name="b" size="3" value="2"> &nbsp;y&nbsp;&nbsp; </td>
+<td> = &nbsp;<input type="text" name="c" size="3" value="3"></td></tr>
+
+<tr>
+<td><input type="text" name="d" size="3" value="4"> &nbsp;x&nbsp;&nbsp;+</td>
+<td><input type="text" name="e" size="3" value="5"> &nbsp;y&nbsp;&nbsp; </td>
+<td> = &nbsp;<input type="text" name="f" size="3" value="6"></td></tr>
+</table>
+</form>
+</TD></TR></TABLE>
+<form name="rep">
+<input type="button" value="Résoudre" onClick="repondre()"> <br>
+<textarea name="result" rows="4" cols="52">
+</textarea>
+<p>
+</form>
+</body>
+</html>
+
+
+
+
